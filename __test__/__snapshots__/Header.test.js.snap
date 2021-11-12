@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`please... you? can? 1`] = `
+<div
+  className="sc-jRQAMF chXDxc"
+>
+  <div
+    onClick={[Function]}
+  >
+    날씨
+  </div>
+  <div
+    onClick={[Function]}
+  >
+    회원
+  </div>
+  <div
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    2021-05-27
+  </div>
+</div>
+`;

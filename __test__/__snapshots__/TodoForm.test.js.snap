@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<T O D O _ F O R M > T E S T [스냅샷]-TodoForm 1`] = `
+<div
+  className="sc-dkPtyc eBcJGs"
+>
+  <form
+    className="formContainer"
+    onSubmit={[Function]}
+  >
+    <div>
+      asdf
+    </div>
+    <input
+      aria-label="help"
+      className="sc-hKwCoD gBceBh todoInput"
+      onChange={[Function]}
+      placeholder="hi"
+      required={true}
+      type="text"
+      value=""
+    />
+    <button
+      aria-label="Enter2"
+      className="sc-bdvvaa iRUeFJ todoButton"
+      onClick={[Function]}
+      type="submit"
+    >
+      추가
+    </button>
+  </form>
+</div>
+`;

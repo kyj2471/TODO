@@ -1,0 +1,3 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=Loading;var _styledComponents=require("styled-components"),_styledComponents2=_interopRequireDefault(_styledComponents);function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}var LoadingWrapper=_styledComponents2.default.div.withConfig({displayName:"Loading__LoadingWrapper",componentId:"sc-1plu3rs-0"})(["display:flex;justify-content:center;align-items:center;height:100vh;.pageNotFound{display:flex;justify-content:center;align-items:center;width:700px;height:300px;border:5px solid black;border-radius:5px;font-size:50px;}"]);function Loading(){return<LoadingWrapper>
+      <div className="pageNotFound">🧤 로 딩 중 🧤</div>
+    </LoadingWrapper>}

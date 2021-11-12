@@ -1,0 +1,11 @@
+'use strict';Object.defineProperty(exports,'__esModule',{value:!0});var _link=require('next/link'),_link2=_interopRequireDefault(_link),_react=require('react'),_react2=_interopRequireDefault(_react),_reactRedux=require('react-redux'),_rootAction=require('../store/modules/rootAction'),actions=_interopRequireWildcard(_rootAction),_moment=require('moment'),_moment2=_interopRequireDefault(_moment),_Modal=require('./Modal'),_Modal2=_interopRequireDefault(_Modal),_UserModal=require('./UserModal'),_UserModal2=_interopRequireDefault(_UserModal),_styledComponents=require('styled-components'),_styledComponents2=_interopRequireDefault(_styledComponents);function _interopRequireWildcard(a){if(a&&a.__esModule)return a;var b={};if(null!=a)for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&&(b[c]=a[c]);return b.default=a,b}function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}var NavHead=_styledComponents2.default.div.withConfig({displayName:'Header__NavHead',componentId:'ktrsbb-0'})(['display:flex;justify-content:space-around;padding-top:30px;max-width:450px;margin:0 auto;img{width:50px;height:50px;}']),Header=function(a){var b=a.myModal,c=a.setMyModal,d=a.profileModal,e=a.setProfileModal,f=a.weather,g=a.getWeather,h=a.user,i=a.getUser;return(0,_react.useEffect)(function(){g(),i()},[]),<NavHead>
+      <div onClick={function a(){c(!b)}}>날씨</div>
+      {b&&<_Modal2.default myModal={b}setMyModal={c}weather={f}getWeather={g}/>}
+
+      <div onClick={function a(){e(!d)}}>회원</div>
+      {d&&<_UserModal2.default profileModal={d}setProfileModal={e}user={h}getUser={i}/>}
+
+      <_link2.default href="/Image">
+        <div>{(0,_moment2.default)().format('YYYY-MM-DD')}</div>
+      </_link2.default>
+    </NavHead>},mapStateToProps=function(a){var b=a.weather,c=a.getWeather,d=a.user,e=a.getUser;return{weather:b,getWeather:c,user:d,getUser:e}},mapDispatchToProps=function(a){return{getWeather:function c(b){return a(actions.getWeather(b))},getUser:function c(b){return a(actions.getUser(b))}}};exports.default=(0,_reactRedux.connect)(mapStateToProps,mapDispatchToProps)(Header);

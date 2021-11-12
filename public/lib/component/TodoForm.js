@@ -1,0 +1,8 @@
+'use strict';Object.defineProperty(exports,'__esModule',{value:!0});var _slicedToArray=function(){function a(a,b){var c=[],d=!0,e=!1,f=void 0;try{for(var g,h=a[Symbol.iterator]();!(d=(g=h.next()).done)&&(c.push(g.value),!(b&&c.length===b));d=!0);}catch(a){e=!0,f=a}finally{try{!d&&h['return']&&h['return']()}finally{if(e)throw f}}return c}return function(b,c){if(Array.isArray(b))return b;if(Symbol.iterator in Object(b))return a(b,c);throw new TypeError('Invalid attempt to destructure non-iterable instance')}}(),_react=require('react'),_react2=_interopRequireDefault(_react),_reactRedux=require('react-redux'),_todo=require('../store/modules/todo'),_styles=require('../../styles/styles'),S=_interopRequireWildcard(_styles);function _interopRequireWildcard(a){if(a&&a.__esModule)return a;var b={};if(null!=a)for(var c in a)Object.prototype.hasOwnProperty.call(a,c)&&(b[c]=a[c]);return b.default=a,b}function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}function TodoForm(a){var b=a.addTodoSaga,c=(0,_react.useState)(''),d=_slicedToArray(c,2),e=d[0],f=d[1],g=function(){b({id:Date.now(),text:e}),f('')};return<S.HeadTodoForm>
+      <form className="formContainer"onSubmit={g}>
+        <S.TodoInput className="todoInput"value={e}onChange={function b(a){a.preventDefault(),f(a.target.value)}}type="text"required/>
+        <S.MainButton huge type="submit"className="todoButton"onClick={g}>
+          추가
+        </S.MainButton>
+      </form>
+    </S.HeadTodoForm>}var mapStateToProps=function(a){var b=a.text,c=a.addTodoSaga;return{text:b,addTodoSaga:c}},mapDispatchToProps=function(a){return{addTodoSaga:function c(b){return a((0,_todo.addTodoSaga)(b))}}};exports.default=(0,_reactRedux.connect)(mapStateToProps,mapDispatchToProps)(TodoForm);
