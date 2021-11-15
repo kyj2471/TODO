@@ -1,4 +1,4 @@
-## 개인적으로 next.js를 포함한 여러가지를 학습하고싶어 만든 todo입니다.
+## 개인적으로 next.js, typescript, redux를 포함한 여러가지를 학습하고싶어 만든 todo입니다.
 
 # Next.js
 
