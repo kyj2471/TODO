@@ -1,3 +1,5 @@
+## 개인적으로 next.js를 포함한 여러가지를 학습하고싶어 만든 todo입니다.
+
 # Next.js
 
 ### 공부하다 알게된 장점?
@@ -203,7 +205,7 @@ value:2,
 - 자 근데 위에서 한 내용은 기본 중요하지만 저렇겐 못쓴다. 예로 트위터라는 곳에서 리듀서를 사용한다면 redux에서 제공하는 combineReducers함수를 이용하여 아래와 같이 사용한다.
 
 ```js
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
 const sessionReducer =
   ((state = { loggedIn: false, user: null }),
@@ -212,7 +214,7 @@ const sessionReducer =
   });
 
 const timelineReducer =
-  ((state = { type: 'home', statuses: [] }),
+  ((state = { type: "home", statuses: [] }),
   (payload) => {
     //something
   });
@@ -224,7 +226,7 @@ const notificationReducer = (state = [], payload) => {
 export default combineReducers({
   session: sessionReducer,
   timeline: timelineReducer,
-  notification: notificationReducer
+  notification: notificationReducer,
 });
 ```
 
@@ -555,13 +557,13 @@ function weirdFunction() {
 
 ```js
 function* generatorFunction() {
-  console.log('1');
+  console.log("1");
   yield 1;
 
-  console.log('2');
+  console.log("2");
   yield 2;
 
-  console.log('3');
+  console.log("3");
   yield 3;
   return 4;
 }
@@ -587,13 +589,13 @@ next() 호출할 때 인자를 전달해서 이를 제너레이터 함수 내부
 
 ```js
 function* sumGenerator() {
-  console.log('start');
+  console.log("start");
   let a = yield;
 
-  console.log('value : a');
+  console.log("value : a");
   let b = yield;
 
-  console.log('value : b');
+  console.log("value : b");
   yield a + b;
 }
 
@@ -609,17 +611,17 @@ REDUX-SAGA에서는 액션을 모니터링 할 수 있다.
 
 ```js
 function* watchGenerator() {
-  console.log('monitoring start');
+  console.log("monitoring start");
   while (true) {
     const action = yield;
-    if (action.type === 'hello') console.log('hi bro');
-    if (action.type === 'bye') console.log('good bye');
+    if (action.type === "hello") console.log("hi bro");
+    if (action.type === "bye") console.log("good bye");
   }
 }
 const watch = watchGenerator();
 watch.next();
-watch.next({ type: 'bye' });
-watch.next({ type: 'hello' });
+watch.next({ type: "bye" });
+watch.next({ type: "hello" });
 ```
 
 결과는 타입값에 따라 콘솔이 찍힌다. 리덕스사가에서 어떤 원리로 인해 액션을 모니터링하는지 알겠다.
@@ -645,15 +647,15 @@ watch.next({ type: 'hello' });
 ```js
 const loggerMiddleware = (store) => (next) => (action) => {
   //현재 스토어 상태값 기록
-  console.log('현재 상태', store.getState());
+  console.log("현재 상태", store.getState());
   //액션 기록
-  console.log('액션', action);
+  console.log("액션", action);
 
   //액션을 다음 미들웨어, 혹은 리듀서로 넘김
   const result = next(action);
 
   //액션 처리 후의 스토어 상태 기록
-  console.log('다음상태', store.getState());
+  console.log("다음상태", store.getState());
 
   return result; // 여기서 반환되는 값은 store.dispatch(ACTION_TYPE)했을때의 결과로 설정됩니다.
 };
@@ -762,8 +764,8 @@ take의 경우 액션이 푸시 되는 대신, 사가 스스로 액션을 풀링
 ```js
 function* loginFlow() {
   while (true) {
-    yield take('LOGIN');
-    yield take('LOGOUT');
+    yield take("LOGIN");
+    yield take("LOGOUT");
   }
 }
 ```
@@ -878,7 +880,7 @@ eventChannel(effect creator가 아닌 팩토리 함수)는 리덕스 스토어�
 코드보자...
 
 ```js
-import { eventChannel, END } from 'redux-saga';
+import { eventChannel, END } from "redux-saga";
 
 function countDown(secs) {
   return eventChannel((emitter) => {
@@ -1078,7 +1080,7 @@ Caller는 Callee를 호출하는 책임뿐 아니라 callee 내부 로직 수행
 //redux-thunk
 function asyncIncrement() {
   return async (dispatch) => {
-    await delay(1000), dispatch({ type: 'INCREMENT' });
+    await delay(1000), dispatch({ type: "INCREMENT" });
   };
 }
 ```
@@ -1088,7 +1090,7 @@ function asyncIncrement() {
 ```js
 function* asyncIncrement() {
   yield call(delay, 1000);
-  yield put({ type: 'INCREMENT' });
+  yield put({ type: "INCREMENT" });
 }
 ```
 
@@ -1099,7 +1101,7 @@ call이든 put이든 뭘 하는게 아님.(call,put은 이펙트 생성자 (Effe
 ```js
 const gen = asyncIncrement();
 expect(gen.next().value).toEqual(call(delay, 1000));
-expect(gen.next().value).toEqual({ type: 'INCREMENT' });
+expect(gen.next().value).toEqual({ type: "INCREMENT" });
 ```
 
 사가는 비동기처리가 복잡해도 if,else,for와 같이 간단한 코드로 구현이 가능하다.
